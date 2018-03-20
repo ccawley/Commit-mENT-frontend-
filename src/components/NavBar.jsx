@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Container, Divider, Dropdown, Grid, Header, Image, List, Menu, Segment } from 'semantic-ui-react'
+import { Container, Image, Menu } from 'semantic-ui-react'
 
 class NavBar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-          activeItem: null
+          activeItem: ''
         }
   }
 
