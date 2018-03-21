@@ -7,11 +7,15 @@ import './App.css'
 
 class App extends Component {
 
+  componentDidMount() {
+    console.log(window.location.search);
+  }
+
   auth = () => {
     let nonce = this.makeNonce()
     localStorage.setItem('State', nonce)
     let clientID = 'cd8ff7558bb5bb6a0d6a'
-    let reqParams = `client_id=${clientID}&redirect_uri=http://commit-m-test.surge.sh&scope=user&state=${nonce}&allow_signup=true`
+    let reqParams = `client_id=${clientID}&redirect_uri=http://commit-m.surge.sh&scope=user&state=${nonce}&allow_signup=true`
 
     window.location.replace('https://github.com/login/oauth/authorize?' + reqParams)
   }
@@ -44,7 +48,7 @@ class App extends Component {
           <NavBar />
         </div>
         <div id="test">
-          <LoginForm />
+          <LoginForm onClick={ this.auth } />
         </div>
       </div>
     )

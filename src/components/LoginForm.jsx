@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 
-const LoginForm = () => {
+const LoginForm = ({ onClick }) => {
   return (
-    <Button basic color='black'>Login via GitHub</Button>
+    <Button onClick={ onClick } basic color='black'>Login via GitHub</Button>
   )
 }
 
