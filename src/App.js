@@ -15,8 +15,9 @@ const baseURL = 'http://localhost:3000/'
 
 class App extends Component {
 
+  state = { isLoggedIn: false }
+
   componentDidMount() {
-    console.log('shit fuckin mounted bruh');
     console.log(window.location.search)
     if (window.location.search)  this.handleTokenExchange(window.location.search)
     else console.log('tokenExchange can not be done')
@@ -67,11 +68,17 @@ class App extends Component {
     return randomARR.join('')
   }
 
+  logout = () => {
+    console.log('click');
+    localStorage.removeItem('token')
+    this.setState({ isLoggedIn: false})
+  }
+
   render() {
     return (
       <div className="App container">
         <div>
-          <NavBar />
+          <NavBar logout={ this.logout } />
         </div>
         <div id="test">
           <LoginForm onClick={ this.auth } />
