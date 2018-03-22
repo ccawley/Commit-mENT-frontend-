@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Image } from 'semantic-ui-react'
 
-class Home extends Component {
-
-  render() {
-    return (
-      <div></div>
-    )
-  }
-
-}
+const Home = () => (
+  <Image src='/assets/images/wireframe/square-image.png' size='medium' circular />
+)
 
 export default Home
