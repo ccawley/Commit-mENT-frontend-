@@ -2,27 +2,38 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
+import './App.css'
 import axios from 'axios'
 
-const baseURL = 'http://localhost:3000/'
+//not deployed
+// const baseURL = 'http://localhost:3000/'
 
-import './App.css'
+//deployed
+const baseURL = 'https://commit-m.herokuapp.com/'
+
+
 
 class App extends Component {
 
   componentDidMount() {
+    console.log('shit fuckin mounted bruh');
     console.log(window.location.search)
-    this.handleTokenExchange(window.location.search)
+    if (window.location.search)  this.handleTokenExchange(window.location.search)
+    else console.log('tokenExchange can not be done')
   }
 
   handleTokenExchange = (tokenStr) => {
+
+    console.log('attempt to exchance token...');
     //no tokenStr? stahp!
     if (!tokenStr) return null
     //yes tokenStr? sally forth!
     axios.post(`${baseURL}auth${tokenStr}`)
       .then(data => {
+        console.log('attempt to set token1!!!')
+        console.log(data);
         //what our BE returns should be.... an obj of { access_token, scope }
-        localStorage.setItem('token', data.access_token)
+        localStorage.setItem('token', data.data.access_token)
       })
   }
 
