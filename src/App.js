@@ -77,11 +77,16 @@ class App extends Component {
     return randomARR.join('')
   }
 
+  logout = () => {
+    localStorage.removeItem('token')
+    this.setState({ isLoggedIn: false})
+  }
+
   render() {
     return (
       <div className="App container">
         <div>
-          <NavBar />
+          <NavBar logout={ this.logout } />
         </div>
         <div id="test">
           {this.state.isLoggedIn ? (<span>Hi</span>): (<LoginForm onClick={ this.auth } />)}
