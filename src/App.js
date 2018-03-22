@@ -18,10 +18,12 @@ class App extends Component {
   state = { isLoggedIn: false }
 
   componentDidMount() {
-    console.log(window.location.search)
     if (window.location.search)  this.handleTokenExchange(window.location.search)
     else console.log('tokenExchange can not be done')
   }
+
+  // componentDidUpdate() {
+  // }
 
   handleTokenExchange = (tokenStr) => {
 
@@ -35,7 +37,14 @@ class App extends Component {
         console.log(data);
         //what our BE returns should be.... an obj of { access_token, scope }
         localStorage.setItem('token', data.data.access_token)
+        this.checkForToken()
       })
+  }
+
+  checkForToken = () => {
+    if (localStorage.getItem('token')) {
+      this.setState({ isLoggedIn: true })
+    }
   }
 
   auth = () => {
@@ -81,7 +90,7 @@ class App extends Component {
           <NavBar logout={ this.logout } />
         </div>
         <div id="test">
-          <LoginForm onClick={ this.auth } />
+          {this.state.isLoggedIn ? (<span>Hi</span>): (<LoginForm onClick={ this.auth } />)}
         </div>
       </div>
     )
