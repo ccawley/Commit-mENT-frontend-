@@ -15,9 +15,9 @@ class App extends Component {
     let nonce = this.makeNonce()
     localStorage.setItem('State', nonce)
     let clientID = 'cd8ff7558bb5bb6a0d6a'
-    let reqParams = `client_id=${clientID}&redirect_uri=http://commit-m.surge.sh&scope=user&state=${nonce}&allow_signup=true`
+    let reqParams = `client_id=${clientID}&redirect_uri=http://commit-m.surge.sh&scope=read:user%20repo&state=${nonce}&allow_signup=true`
 
-    window.location.replace('https://github.com/login/oauth/authorize?' + reqParams)
+    window.location.replace(`https://github.com/login/oauth/authorize?${reqParams}`)
   }
 
   makeNonce = () => {
