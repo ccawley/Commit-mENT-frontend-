@@ -22,10 +22,8 @@ class App extends Component {
     else console.log('tokenExchange can not be done')
   }
 
-  componentDidUpdate() {
-    console.log("shits and giggles");
-    this.checkForToken()
-  }
+  // componentDidUpdate() {
+  // }
 
   handleTokenExchange = (tokenStr) => {
 
@@ -39,14 +37,13 @@ class App extends Component {
         console.log(data);
         //what our BE returns should be.... an obj of { access_token, scope }
         localStorage.setItem('token', data.data.access_token)
-        this.setState({ isLoggedIn: true })
+        this.checkForToken()
       })
   }
 
   checkForToken = () => {
     if (localStorage.getItem('token')) {
-      // do schtuff
-      console.log("we have a token");
+      this.setState({ isLoggedIn: true })
     }
   }
 
