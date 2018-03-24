@@ -26,32 +26,38 @@ class App extends Component {
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
-    else console.log('tokenExchange can not be done')
   }
 
   // componentDidUpdate() {
   // }
 
   handleTokenExchange = (tokenStr) => {
-
-    console.log('attempt to exchance token...');
-    //no tokenStr? stahp!
     if (!tokenStr) return null
-    //yes tokenStr? sally forth!
     axios.post(`${baseURL}auth${tokenStr}`)
       .then(data => {
-        console.log('attempt to set token1!!!')
-        console.log(data);
-        //what our BE returns should be.... an obj of { access_token, scope }
         localStorage.setItem('token', data.data.access_token)
         this.checkForToken()
       })
   }
 
-  checkForToken = () => {
+  checkForToken = async () => {
     if (localStorage.getItem('token')) {
-      this.setState({ isLoggedIn: true })
+      this.getProfile()
+        .then(result => {
+          this.setState({
+            isLoggedIn: true,
+            profile: result
+            })
+        })
+
     }
+  }
+
+  getProfile = () => {
+    let body = {token: localStorage.getItem('token')}
+    return axios.post(`${baseURL}users`, body)
+      .then(result => result.data)
+      .catch()
   }
 
   auth = () => {
@@ -94,7 +100,7 @@ class App extends Component {
       <div className="App container">
           <NavBar logout={ this.logout } />
         <div  id="test">
-          {this.state.isLoggedIn ? (<Profile />): (<LoginForm onClick={ this.auth } />)}
+          {this.state.isLoggedIn ? (<Profile profile={this.state.profile} />): (<LoginForm onClick={ this.auth } />)}
         </div>
       </div>
     )

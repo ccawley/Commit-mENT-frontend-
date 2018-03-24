@@ -1,14 +1,14 @@
 import React from 'react'
 import { Image, Label, Item, Grid, Segment, Divider  } from 'semantic-ui-react'
 
-const Profile = ({  }) => {
+const Profile = (props) => {
   return (
     <Grid>
     <Grid.Column width={9}>
-      <Image src='http://via.placeholder.com/350x350' size='medium' circular centered />
+      <Image src={props.profile.avatar_image} size='medium' circular centered />
     </Grid.Column>
     <Grid.Column width={3}>
-          <h1>just-hey</h1>
+          <h1>{props.profile.user_name}</h1>
     </Grid.Column>
   </Grid>
   )
