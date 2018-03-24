@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
+
+// ---- LIST OF COMPONENTS ----
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
+import Profile from './components/Profile'
+
+
 import './App.css'
 import axios from 'axios'
 
@@ -15,6 +20,8 @@ const baseURL = 'http://localhost:3000/'
 
 class App extends Component {
 
+  // swap before pushing!
+  // state = { isLoggedIn: true }
   state = { isLoggedIn: false }
 
   componentDidMount() {
@@ -85,11 +92,9 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <div>
           <NavBar logout={ this.logout } />
-        </div>
-        <div id="test">
-          {this.state.isLoggedIn ? (<span>Hi</span>): (<LoginForm onClick={ this.auth } />)}
+        <div  id="test">
+          {this.state.isLoggedIn ? (<Profile />): (<LoginForm onClick={ this.auth } />)}
         </div>
       </div>
     )
