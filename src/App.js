@@ -93,6 +93,7 @@ class App extends Component {
   logout = () => {
     localStorage.removeItem('token')
     this.setState({ isLoggedIn: false})
+    window.location.replace('/')
   }
 
   render() {
