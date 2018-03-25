@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Image, Menu } from 'semantic-ui-react'
 
-const NavBar = ({ logout }) => {
+const NavBar = ({ logout, status }) => {
 
   return (
    <div>
@@ -16,7 +16,7 @@ const NavBar = ({ logout }) => {
            Commit-m
          </Menu.Item>
          <Menu.Menu position='right'>
-           <Menu.Item name='logout' onClick={ logout } />
+           {status ? ( <Menu.Item name='logout' onClick={ logout } />): ('')}
          </Menu.Menu>
 
        </Container>

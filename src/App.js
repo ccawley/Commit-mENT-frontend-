@@ -98,7 +98,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          <NavBar logout={ this.logout } />
+          <NavBar logout={ this.logout } status={ this.state.isLoggedIn } />
         <div  id="test">
           {this.state.isLoggedIn ? (<Profile profile={this.state.profile} />): (<LoginForm onClick={ this.auth } />)}
         </div>
