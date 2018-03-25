@@ -1,42 +1,29 @@
 import React from 'react'
-import { Image, Label, Item, Grid, Segment, Divider  } from 'semantic-ui-react'
+import { Image, Header, Button, Grid } from 'semantic-ui-react'
 
 const Profile = (props) => {
   return (
-    <Grid>
-    <Grid.Column width={9}>
-      <Image src={props.profile.avatar_image} size='medium' circular centered />
-    </Grid.Column>
-    <Grid.Column width={3}>
-          <h1>{props.profile.user_name}</h1>
-    </Grid.Column>
-  </Grid>
+      <Grid container stackable verticalAlign='middle'>
+        <Grid.Row>
+          <Grid.Column floated='right' width={7}>
+            <Image
+              circular
+              rounded
+              size='medium'
+              src={props.profile.avatar_image}
+            />
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <Header as='h3' style={{ fontSize: '2em' }}>{props.profile.user_name}</Header>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column textAlign='center'>
+            <Button target='_blank' onClick={(e) => {e.preventDefault(); window.open(`https://github.com/${props.profile.user_name}`)}} size='huge'>View GitHub</Button>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
   )
 }
 
 export default Profile
-
-
-
-      // <Item.Group divided>
-      //   <Item>
-      //     <Item.Image src='/assets/images/wireframe/image.png' />
-      //     <Item.Content>
-      //       <Item.Header as='a'>Content Header</Item.Header>
-      //       <Item.Meta>
-      //         <span>Date</span>
-      //         <span>Category</span>
-      //       </Item.Meta>
-      //       <Item.Description>
-      //         A description which may flow for several lines and give context to the content.
-      //       </Item.Description>
-      //       <Item.Extra>
-      //         <Image
-      //           avatar
-      //           circular
-      //           src='/assets/images/wireframe/square-image.png'
-      //         />
-      //         Username
-      //       </Item.Extra>
-      //     </Item.Content>
-      //   </Item>
