@@ -4,7 +4,6 @@ import { Route, Link } from 'react-router-dom'
 // ---- LIST OF COMPONENTS ----
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
-import Profile from './components/Profile'
 
 
 import './App.css'
@@ -21,8 +20,8 @@ const baseURL = 'http://localhost:3000/'
 class App extends Component {
 
   // swap before pushing!
-  state = { isLoggedIn: true, isOpen: false }
-  // state = { isLoggedIn: false, profile: null}
+  // state = { isLoggedIn: true, isOpen: false }
+  state = { isLoggedIn: false, profile: null, isOpen: false }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
@@ -97,7 +96,6 @@ class App extends Component {
   }
 
   toggleModal = () => {
-    console.log('clicked!!!')
     if (this.state.isOpen) this.setState({ isOpen: false })
     else this.setState({ isOpen: true })
   }
@@ -107,7 +105,7 @@ class App extends Component {
       <div className="App container">
           {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : ('')}
         <div  id="test">
-          {this.state.isLoggedIn ? (<Profile profile={this.state.profile} />): (<LoginForm onClick={ this.auth } />)}
+          {this.state.isLoggedIn ? (''): (<LoginForm onClick={ this.auth } />)}
         </div>
       </div>
     )

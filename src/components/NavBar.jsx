@@ -21,8 +21,8 @@ const NavBar = ({ logout, profile, status, onChange, open }) => {
             <Dropdown
               trigger={
                 <span>
-                  {/* <Image avatar src={profile.avatar_image} /> {profile.user_name} */}
-                  <Image avatar src='http://via.placeholder.com/350x150' /> User Name
+                  <Image avatar src={profile.avatar_image} /> {profile.user_name}
+                  {/* <Image avatar src='http://via.placeholder.com/350x150' /> User Name */}
                 </span>
               }
               options={options}
@@ -38,13 +38,13 @@ const NavBar = ({ logout, profile, status, onChange, open }) => {
                           circular
                           rounded
                           size='medium'
-                          // src={props.profile.avatar_image}
-                          src='http://via.placeholder.com/350x350'
+                          src={profile.avatar_image}
+                          // src='http://via.placeholder.com/350x350'
                         />
                       </Grid.Column>
                       <Grid.Column width={8}>
-                        {/* <Header as='h3' inverted style={{ fontSize: '2em' }}>{props.profile.user_name}</Header> */}
-                        <Header as='h3' inverted style={{ fontSize: '2em' }}>User Name</Header>
+                        <Header as='h3' inverted style={{ fontSize: '2em' }}>{profile.user_name}</Header>
+                        {/* <Header as='h3' inverted style={{ fontSize: '2em' }}>User Name</Header> */}
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>
