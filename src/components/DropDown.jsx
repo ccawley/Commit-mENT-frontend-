@@ -7,14 +7,15 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
     { key: 'user', text: 'Account', icon: 'user', onClick: onChange  },
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick: logout },
   ]
-  
+  console.log('ahh damnit bobby',profile);
+
   return (
     <div>
       <Dropdown
         trigger={
           <span>
-            {/* <Image avatar src={profile.avatar_image} /> {profile.user_name} */}
-            <Image avatar src='http://via.placeholder.com/350x150' /> User Name
+            <Image avatar src={profile.avatar_image} /> {profile.user_name}
+            {/* <Image avatar src='http://via.placeholder.com/350x150' /> User Name */}
           </span>
         }
         options={options}
@@ -30,19 +31,15 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
                     circular
                     rounded
                     size='medium'
-                    // src={profile.avatar_image}
-                    src='http://via.placeholder.com/350x350'
+                    src={profile.avatar_image}
+                    // src='http://via.placeholder.com/350x350'
                   />
                 </Grid.Column>
                 <Grid.Column width={8}>
-                  {/* <Header as='h3' inverted style={{ fontSize: '2em' }}>{profile.user_name}</Header> */}
-                  <Header as='h3' style={{ fontSize: '2em' }}>User Name</Header>
+                  <Header as='h3' style={{ fontSize: '2em' }}>{profile.user_name}</Header>
+                  {/* <Header as='h3' style={{ fontSize: '2em' }}>User Name</Header> */}
                 </Grid.Column>
               </Grid.Row>
-              <Modal.Description>
-                <p>We've found the following gravatar image associated with your e-mail address. Is it okay to use this photo? Words and things and stuff about the person? Sure! why the fudge not?!</p>
-                <p></p>
-              </Modal.Description>
             </Grid>
           </Modal.Content>
         </Modal>
