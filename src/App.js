@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
 import Profile from './components/Profile'
+import CommitCard from './components/CommitCard'
 
 
 import './App.css'
@@ -99,10 +100,11 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          <NavBar logout={ this.logout } status={ this.state.isLoggedIn } />
-        <div  id="test">
+        <NavBar logout={ this.logout } status={ this.state.isLoggedIn } />
+        <CommitCard />
+        {/*<div  id="test">
           {this.state.isLoggedIn ? (<Profile profile={this.state.profile} />): (<LoginForm onClick={ this.auth } />)}
-        </div>
+        </div>*/}
       </div>
     )
   }
