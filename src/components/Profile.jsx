@@ -1,8 +1,9 @@
 import React from 'react'
-import { Image, Header, Button, Grid } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Grid } from 'semantic-ui-react'
 
-const Profile = (props) => {
-  return (
+const Profile = (props) => (
+  <Modal className='modal container' size='small' basic closeIcon>
+    <Modal.Content image>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column floated='right' width={7}>
@@ -10,20 +11,18 @@ const Profile = (props) => {
               circular
               rounded
               size='medium'
-              src={props.profile.avatar_image}
+              // src={props.profile.avatar_image}
+              src='http://via.placeholder.com/350x350'
             />
           </Grid.Column>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>{props.profile.user_name}</Header>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column textAlign='center'>
-            <Button target='_blank' onClick={(e) => {e.preventDefault(); window.open(`https://github.com/${props.profile.user_name}`)}} size='huge'>View GitHub</Button>
+            {/* <Header as='h3' inverted style={{ fontSize: '2em' }}>{props.profile.user_name}</Header> */}
+            <Header as='h3' inverted style={{ fontSize: '2em' }}>User Name</Header>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-  )
-}
+    </Modal.Content>
+  </Modal>
+)
 
 export default Profile
