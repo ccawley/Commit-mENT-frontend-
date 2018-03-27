@@ -32,12 +32,15 @@ class App extends Component {
   // }
 
   handleTokenExchange = (tokenStr) => {
+    console.log('in handle exchange', tokenStr)
     if (!tokenStr) return null
     axios.post(`${baseURL}auth${tokenStr}`)
       .then(data => {
-        localStorage.setItem('token', data.data.access_token)
+        console.log('WE WANT DIS!',data)
+        localStorage.setItem('token', data.access_token)
         this.checkForToken()
       })
+      .catch(err => console.log(err, 'handle token exchange issue'))
   }
 
   checkForToken = async () => {
@@ -49,6 +52,7 @@ class App extends Component {
             profile: result
             })
         })
+        .catch(err => console.log(err))
 
     }
   }
@@ -57,7 +61,7 @@ class App extends Component {
     let body = {token: localStorage.getItem('token')}
     return axios.post(`${baseURL}users`, body)
       .then(result => result.data)
-      .catch()
+      .catch(err => console.log(err))
   }
 
   auth = () => {
@@ -104,10 +108,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : ('')}
-        <div  id="test">
-          {this.state.isLoggedIn ? (''): (<LoginForm onClick={ this.auth } />)}
-        </div>
+          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : (<LoginForm id="test" onClick={ this.auth } />)}
       </div>
     )
   }
