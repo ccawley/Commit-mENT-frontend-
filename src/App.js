@@ -21,8 +21,8 @@ const baseURL = 'http://localhost:3000/'
 class App extends Component {
 
   // swap before pushing!
-  // state = { isLoggedIn: true, isOpen: false }
-  state = { isLoggedIn: false, profile: null, isOpen: false }
+  state = { isLoggedIn: true, isOpen: false }
+  // state = { isLoggedIn: false, profile: null, isOpen: false }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
