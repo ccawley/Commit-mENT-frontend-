@@ -11,10 +11,10 @@ import './App.css'
 import axios from 'axios'
 
 //not deployed
-const baseURL = 'http://localhost:3000/'
+// const baseURL = 'http://localhost:3000/'
 
 //deployed
-// const baseURL = 'https://commit-m.herokuapp.com/'
+const baseURL = 'https://commit-m.herokuapp.com/'
 
 
 
