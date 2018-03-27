@@ -7,7 +7,6 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
     { key: 'user', text: 'Account', icon: 'user', onClick: onChange  },
     { key: 'sign-out', text: 'Sign Out', icon: 'sign out', onClick: logout },
   ]
-  console.log('ahh damnit bobby',profile);
 
   return (
     <div>
