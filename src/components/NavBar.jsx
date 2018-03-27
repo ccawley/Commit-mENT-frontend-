@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Image, Menu, Dropdown, Button, Header, Modal, Grid  } from 'semantic-ui-react'
+import { Container, Image, Menu } from 'semantic-ui-react'
 import DropDown from './DropDown'
 
 const NavBar = ({ logout, profile, status, onChange, open }) => {
