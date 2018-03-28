@@ -52,7 +52,24 @@ class App extends Component {
         })
         .catch(err => console.log(err))
 
+      this.requestUserCommits()
+        .then()
+        .catch(console.error)
+
     }
+  }
+
+  requestUserCommits = () => {
+    let body = {token: localStorage.getItem('token')}
+    return axios.post(`${baseURL}commits`, body)
+      .then(result => result.data)
+      .catch(err => console.log(err))
+  }
+
+  getCommits = () => {
+    return axios.get(`${baseURL}commits`)
+      .then(result => result)
+      .catch(console.error)
   }
 
   getProfile = () => {

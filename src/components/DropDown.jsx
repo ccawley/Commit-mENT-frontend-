@@ -13,7 +13,7 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
       <Dropdown
         trigger={
           <span>
-            <Image avatar src={profile.avatar_image} /> {profile.user_name}
+            <Image avatar src={profile.avatar_image} /> {profile.full_name}
             {/* <Image avatar src='http://via.placeholder.com/350x150' /> User Name */}
           </span>
         }
@@ -35,8 +35,8 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
                   />
                 </Grid.Column>
                 <Grid.Column width={8}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>{profile.user_name}</Header>
-                  {/* <Header as='h3' style={{ fontSize: '2em' }}>User Name</Header> */}
+                  <Header as='h3' style={{ fontSize: '2em' }}>{profile.full_name}</Header>
+                  <div className="meta" >{profile.user_name}</div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
