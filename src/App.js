@@ -11,10 +11,10 @@ import './App.css'
 import axios from 'axios'
 
 //not deployed
-const baseURL = 'http://localhost:3000/'
+// const baseURL = 'http://localhost:3000/'
 
 //deployed
-// const baseURL = 'https://commit-m.herokuapp.com/'
+const baseURL = 'https://commit-m.herokuapp.com/'
 
 
 
@@ -38,6 +38,7 @@ class App extends Component {
         localStorage.setItem('token', data.data.access_token)
         this.checkForToken()
       })
+      .catch(err => console.log(err, 'handle token exchange issue'))
   }
 
   checkForToken = async () => {
@@ -49,15 +50,33 @@ class App extends Component {
             profile: result
             })
         })
+        .catch(err => console.log(err))
+
+      this.requestUserCommits()
+        .then()
+        .catch(console.error)
 
     }
+  }
+
+  requestUserCommits = () => {
+    let body = {token: localStorage.getItem('token')}
+    return axios.post(`${baseURL}commits`, body)
+      .then(result => result.data)
+      .catch(err => console.log(err))
+  }
+
+  getCommits = () => {
+    return axios.get(`${baseURL}commits`)
+      .then(result => result)
+      .catch(console.error)
   }
 
   getProfile = () => {
     let body = {token: localStorage.getItem('token')}
     return axios.post(`${baseURL}users`, body)
       .then(result => result.data)
-      .catch()
+      .catch(err => console.log(err))
   }
 
   auth = () => {
@@ -104,10 +123,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : ('')}
-        <div  id="test">
-          {this.state.isLoggedIn ? (''): (<LoginForm onClick={ this.auth } />)}
-        </div>
+          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : (<LoginForm id="test" onClick={ this.auth } />)}
       </div>
     )
   }
