@@ -32,12 +32,10 @@ class App extends Component {
   // }
 
   handleTokenExchange = (tokenStr) => {
-    console.log('in handle exchange', tokenStr)
     if (!tokenStr) return null
     axios.post(`${baseURL}auth${tokenStr}`)
       .then(data => {
-        console.log('WE WANT DIS!',data)
-        localStorage.setItem('token', data.access_token)
+        localStorage.setItem('token', data.data.access_token)
         this.checkForToken()
       })
       .catch(err => console.log(err, 'handle token exchange issue'))
