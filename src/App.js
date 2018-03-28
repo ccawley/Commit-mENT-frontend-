@@ -43,7 +43,7 @@ class App extends Component {
 
   checkForToken = async () => {
     if (localStorage.getItem('token')) {
-      this.getProfile()
+      this.requestUserProfile()
         .then(result => {
           this.setState({
             isLoggedIn: true,
@@ -55,7 +55,6 @@ class App extends Component {
       this.requestUserCommits()
         .then()
         .catch(console.error)
-
     }
   }
 
@@ -72,7 +71,7 @@ class App extends Component {
       .catch(console.error)
   }
 
-  getProfile = () => {
+  requestUserProfile = () => {
     let body = {token: localStorage.getItem('token')}
     return axios.post(`${baseURL}users`, body)
       .then(result => result.data)
