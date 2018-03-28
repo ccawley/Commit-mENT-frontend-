@@ -5,24 +5,25 @@ import { Route, Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
 import CommitCard from './components/CommitCard'
+import Leaderboard from './components/Leaderboard'
 
 
 import './App.css'
 import axios from 'axios'
 
 //not deployed
-// const baseURL = 'http://localhost:3000/'
+const baseURL = 'http://localhost:3000/'
 
 //deployed
-const baseURL = 'https://commit-m.herokuapp.com/'
+// const baseURL = 'https://commit-m.herokuapp.com/'
 
 
 
 class App extends Component {
 
   // swap before pushing!
-  // state = { isLoggedIn: true, isOpen: false }
-  state = { isLoggedIn: false, profile: null, isOpen: false }
+  state = { isLoggedIn: true, isOpen: false }
+  // state = { isLoggedIn: false, profile: null, isOpen: false }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
@@ -122,7 +123,8 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : (<LoginForm id="test" onClick={ this.auth } />)}
+          {this.state.isLoggedIn ? (<div><NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />
+          <Leaderboard /></div>) : (<LoginForm id="test" onClick={ this.auth } />)}
       </div>
     )
   }
