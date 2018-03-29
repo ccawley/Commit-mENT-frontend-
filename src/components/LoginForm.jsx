@@ -25,6 +25,7 @@ const LoginForm = ({ onClick }) => {
             </Grid.Column>
             <Grid.Column id='rightHalfSplash' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h1>
                   See what's happening in the world of<br></br>commit messages right now.
                 </h1>
@@ -59,6 +60,7 @@ const LoginForm = ({ onClick }) => {
             </Grid.Column>
             <Grid.Column id='rightHalfSplash' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h2>
                   See what's happening in the world<br></br>of commit messages right now.
                 </h2>
@@ -77,8 +79,9 @@ const LoginForm = ({ onClick }) => {
           <Grid.Row>
             <Grid.Column id='topHalfSplashMobile' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h3>
-                  See what's happening in the world of<br></br>commit messages right now.
+                  See what's happening in the world<br></br>of commit messages right now.
                 </h3>
                 <h4>
                   Join Commit-m today!
@@ -94,7 +97,7 @@ const LoginForm = ({ onClick }) => {
                 </h4>
                 <h4>
                   <Icon className='icon' name='users' size='large'/>
-                  See what others are commiting about.
+                  See what others are commiting.
                 </h4>
                 <h4>
                   <Icon className='icon' name='star' size='large'/>

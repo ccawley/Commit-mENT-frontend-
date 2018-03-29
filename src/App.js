@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
 import CommitCard from './components/CommitCard'
 import Leaderboard from './components/Leaderboard'
+import Footer from './components/Footer'
 
 
 import './App.css'
@@ -22,8 +23,8 @@ const baseURL = 'http://localhost:3000/'
 class App extends Component {
 
   // swap before pushing!
-  state = { isLoggedIn: true, isOpen: false }
-  // state = { isLoggedIn: false, profile: null, isOpen: false }
+  // state = { isLoggedIn: true, isOpen: false }
+  state = { isLoggedIn: false, profile: null, isOpen: false }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
@@ -125,6 +126,7 @@ class App extends Component {
       <div className="App container">
           {this.state.isLoggedIn ? (<div><NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />
           <Leaderboard /></div>) : (<LoginForm id="test" onClick={ this.auth } />)}
+          <Footer />
       </div>
     )
   }

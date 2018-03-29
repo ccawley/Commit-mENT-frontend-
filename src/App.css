@@ -6,6 +6,12 @@
   padding: 0;
 }
 
+.splashTitle {
+  display: flex;
+  font-size: 3.5em;
+  justify-content: center;
+}
+
 #leftHalfSplash {
   align-items: center;
   background-color: #FFAA66;
@@ -24,6 +30,11 @@
   text-align: left;
 }
 
+#bottomHalfSplashMobile h4 {
+  margin: 20px 0;
+  font-size: 17px;
+}
+
 #rightHalfSplash {
   align-items: center;
   color: #FFAA66;
@@ -40,12 +51,29 @@
   justify-content: center;
 }
 
+#topHalfSplashMobile h1 {
+  margin: 10px 0;
+}
+
+#topHalfSplashMobile h3 {
+  margin: 10px 0;
+}
+
+#topHalfSplashMobile h4 {
+  margin: 10px 0;
+}
+
+#topHalfSplashMobile button {
+  margin: 10px 0;
+}
+
 .login .icon {
   margin-right: 15px;
 }
 
 #splashButton {
   margin-top: 20px;
+  margin-right: 0;
 }
 
 .modal {
@@ -63,4 +91,8 @@
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
   transform:translateY(-50%);
+}
+
+.footer {
+  border-top: solid black 1px;
 }
