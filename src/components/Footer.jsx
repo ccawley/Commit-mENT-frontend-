@@ -3,7 +3,7 @@ import { Container, Menu, Responsive } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
-    <div onBottom className='footer' textAlign='center'>
+    <div className='footer' textAlign='center'>
       <Responsive {...Responsive.onlyComputer}>
         <p>Commit-m ~ 2017</p>
       </Responsive>
