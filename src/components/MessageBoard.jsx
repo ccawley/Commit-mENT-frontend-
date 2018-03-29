@@ -34,12 +34,13 @@ class MessageBoard extends Component {
       <div>
         {
           this.state.cards.map((card) => {
+            let date = new Date(card.created_on)
             return <CommitCard
               key={card.id}
               id={card.id}
               name={card.full_name}
               message={card.message}
-              date={card.created_on}
+              date={date.toDateString()}
               avatar={card.avatar_image}
             />
           })
