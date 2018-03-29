@@ -21,6 +21,11 @@ class MessageBoard extends Component {
 
   componentDidMount() {
     this.getCommits()
+    window.addEventListener('scroll', this.trackScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.trackScroll)
   }
 
     // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
@@ -36,6 +41,16 @@ class MessageBoard extends Component {
   loadMore = () => {
     this.setState({limit: this.state.limit + 10})
     this.getCommits()
+  }
+
+  trackScroll = () => {
+    let d = document.documentElement
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    let scrollTrack = window.scrollY
+
+    if (scrollTrack === height) {
+      this.loadMore()
+    }
   }
 
   dateConversion = (dateStr) => {
@@ -81,7 +96,6 @@ class MessageBoard extends Component {
             />
           })
         }
-        <button className="ui mini basic button" role="button" onClick={this.loadMore}>Load more</button>
       </div>
     )
   }

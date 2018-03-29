@@ -130,7 +130,6 @@ class App extends Component {
     else this.setState({ isOpen: true })
   }
 
-
   render() {
     return (
       <div className="App container">
