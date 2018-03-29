@@ -40,6 +40,12 @@ class MessageBoard extends Component {
 
   voteOnCommit(id, userid) {
     console.log('clicked like?')
+    let body = { commit_id: id, user_id: userid }
+    axios.post(`${this.props.url}/likes`, body)
+      .then(result => {
+        console.log('casted vote')
+      })
+      .catch(console.error)
   }
 
   likesCount(id) {
