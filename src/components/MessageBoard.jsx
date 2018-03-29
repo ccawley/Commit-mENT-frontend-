@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CommitCard from './CommitCard'
 import axios from 'axios'
+import {Button} from 'semantic-ui-react'
 
 class MessageBoard extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class MessageBoard extends Component {
         created_on: null,
         message: null,
         avatar_image: null
-      }]
+      }],
+      limit: 10
     }
   }
 
@@ -22,11 +24,17 @@ class MessageBoard extends Component {
   }
 
   getCommits = () => {
-    axios.get(`${this.props.url}commits`)
+    let query = `?limit=${this.state.limit}&offset=0`
+    axios.get(`${this.props.url}commits${query}`)
       .then((response) => {
         this.setState({ cards: response.data})
       })
       .catch(console.error)
+  }
+
+  loadMore = () => {
+    this.setState({limit: this.state.limit + 10})
+    this.getCommits()
   }
 
   dateConversion = (dateStr) => {
@@ -72,6 +80,7 @@ class MessageBoard extends Component {
             />
           })
         }
+        <button className="ui mini basic button" role="button" onClick={this.loadMore}>Load more</button>
       </div>
     )
   }
