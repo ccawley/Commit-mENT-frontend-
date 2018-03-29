@@ -15,7 +15,7 @@ const LoginForm = ({ onClick }) => {
                 </h2>
                 <h2>
                   <Icon className='icon' name='users' size='large'/>
-                  See what other people are commiting about.
+                  See what others are commiting about.
                 </h2>
                 <h2>
                   <Icon className='icon' name='star' size='large'/>
@@ -25,13 +25,14 @@ const LoginForm = ({ onClick }) => {
             </Grid.Column>
             <Grid.Column id='rightHalfSplash' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h1>
                   See what's happening in the world of<br></br>commit messages right now.
                 </h1>
                 <h2 id='booty'>
                   Join Commit-m today!
                 </h2>
-                <Button size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
+                <Button id='splashButton' size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
               </ul>
             </Grid.Column>
           </Grid.Row>
@@ -49,7 +50,7 @@ const LoginForm = ({ onClick }) => {
                 </h3>
                 <h3>
                   <Icon className='icon' name='users' size='large'/>
-                  See what other people are commiting about.
+                  See what others are commiting about.
                 </h3>
                 <h3>
                   <Icon className='icon' name='star' size='large'/>
@@ -59,13 +60,14 @@ const LoginForm = ({ onClick }) => {
             </Grid.Column>
             <Grid.Column id='rightHalfSplash' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h2>
                   See what's happening in the world<br></br>of commit messages right now.
                 </h2>
                 <h3>
                   Join Commit-m today!
                 </h3>
-                <Button size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
+                <Button id='splashButton' size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
               </ul>
             </Grid.Column>
           </Grid.Row>
@@ -77,13 +79,14 @@ const LoginForm = ({ onClick }) => {
           <Grid.Row>
             <Grid.Column id='topHalfSplashMobile' width={8}>
               <ul>
+                <h1 className='splashTitle'>Commit-m</h1>
                 <h3>
-                  See what's happening in the world of commit messages right now.
+                  See what's happening in the world<br></br>of commit messages right now.
                 </h3>
                 <h4>
                   Join Commit-m today!
                 </h4>
-                <Button size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
+                <Button id='splashButton' size='massive' onClick={ onClick } basic color='black'>Login via GitHub</Button>
               </ul>
             </Grid.Column>
             <Grid.Column id='bottomHalfSplashMobile' width={8}>
@@ -94,7 +97,7 @@ const LoginForm = ({ onClick }) => {
                 </h4>
                 <h4>
                   <Icon className='icon' name='users' size='large'/>
-                  See what other people<br></br>are commiting about.
+                  See what others are commiting.
                 </h4>
                 <h4>
                   <Icon className='icon' name='star' size='large'/>
