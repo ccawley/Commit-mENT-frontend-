@@ -11,10 +11,10 @@ import './App.css'
 import axios from 'axios'
 
 //not deployed
-const baseURL = 'http://localhost:3000/'
+// const baseURL = 'http://localhost:3000/'
 
 //deployed
-// const baseURL = 'https://commit-m.herokuapp.com/'
+const baseURL = 'https://commit-m.herokuapp.com/'
 
 
 
@@ -118,7 +118,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<Home logout={ this.logout } profile={ this.state.profile } status={ this.state.isLoggedIn } toggleModal={ this.toggleModal } open={ this.state.isOpen } url={ baseURL } />) : (<LoginForm id=“test” onClick={ this.auth } />)}
+          {this.state.isLoggedIn ? (<Home logout={ this.logout } profile={ this.state.profile } status={ this.state.isLoggedIn } toggleModal={ this.toggleModal } open={ this.state.isOpen } url={ baseURL } />) : (<LoginForm onClick={ this.auth } />)}
           <Footer />
       </div>
     )
