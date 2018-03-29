@@ -44,6 +44,7 @@ class MessageBoard extends Component {
     axios.post(`${this.props.url}/likes`, body)
       .then(result => {
         console.log('casted vote')
+        return this.likesCount(id)
       })
       .catch(console.error)
   }
