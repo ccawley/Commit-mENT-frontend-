@@ -93,6 +93,12 @@
   transform:translateY(-50%);
 }
 
+<<<<<<< HEAD
 .footer {
   border-top: solid black 1px;
+=======
+.ui .container {
+  text-align: center;
+  margin: auto;
+>>>>>>> upstream/master
 }
