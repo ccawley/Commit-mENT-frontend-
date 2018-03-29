@@ -8,8 +8,6 @@ const Leader = ({ leader }) => {
       <Table.Cell>
         <Header as='h4' image>
           <Image avatar src={leader.avatar_image} rounded size='large'/>
-        {/* <Header as='h4' image>
-          <Image avatar src={'http://via.placeholder.com/350x350'} rounded size='large'/> */}
           <Header.Content>
               {leader.full_name}
             <Header.Subheader>{leader.user_name}</Header.Subheader>
