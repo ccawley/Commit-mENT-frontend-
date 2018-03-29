@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 
 // ---- LIST OF COMPONENTS ----
-import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
-import CommitCard from './components/CommitCard'
+import Home from './components/Home'
 
 
 import './App.css'
@@ -65,12 +64,6 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  getCommits = () => {
-    return axios.get(`${baseURL}commits`)
-      .then(result => result)
-      .catch(console.error)
-  }
-
   requestUserProfile = () => {
     let body = {token: localStorage.getItem('token')}
     return axios.post(`${baseURL}users`, body)
@@ -119,10 +112,11 @@ class App extends Component {
     else this.setState({ isOpen: true })
   }
 
+
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<NavBar logout={ this.logout } profile={this.state.profile} status={ this.state.isLoggedIn } onChange={this.toggleModal} open={this.state.isOpen} />) : (<LoginForm id="test" onClick={ this.auth } />)}
+        {this.state.isLoggedIn ? (<Home logout={ this.logout } profile={ this.state.profile } status={ this.state.isLoggedIn } toggleModal={ this.toggleModal } open={ this.state.isOpen } url={ baseURL } />) : (<LoginForm id="test" onClick={ this.auth } />)}
       </div>
     )
   }
