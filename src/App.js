@@ -16,12 +16,10 @@ import axios from 'axios'
 //deployed
 const baseURL = 'https://commit-m.herokuapp.com/'
 
-
-
 class App extends Component {
 
   // swap before pushing!
-  // state = { isLoggedIn: true, isOpen: false }
+  // state = { isLoggedIn: true, isOpen: false, leaders: dummyData }
   state = { isLoggedIn: false, profile: null, isOpen: false }
 
   componentDidMount() {
@@ -33,6 +31,7 @@ class App extends Component {
   // }
 
   handleTokenExchange = (tokenStr) => {
+    // this.localStorage.setItem({ 'token': 'eef0cadcf685d2a6507a9c7cc46da26ac73a2ea2'})
     if (!tokenStr) return null
     axios.post(`${baseURL}auth${tokenStr}`)
       .then(data => {
@@ -56,12 +55,29 @@ class App extends Component {
       this.requestUserCommits()
         .then()
         .catch(console.error)
+
+      this.requestLeaderCommits()
+        .then(result => {
+          console.log('setting?!');
+          console.log(result);
+          this.setState({
+            leaders: result
+          })
+        })
+        .catch(console.error)
     }
   }
 
   requestUserCommits = () => {
     let body = {token: localStorage.getItem('token')}
     return axios.post(`${baseURL}commits`, body)
+      .then(result => result.data)
+      .catch(err => console.log(err))
+  }
+
+  requestLeaderCommits = () => {
+    let body = {token: localStorage.getItem('token')}
+    return axios.get(`${baseURL}likes/lead`, body)
       .then(result => result.data)
       .catch(err => console.log(err))
   }
@@ -118,7 +134,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-          {this.state.isLoggedIn ? (<Home logout={ this.logout } profile={ this.state.profile } status={ this.state.isLoggedIn } toggleModal={ this.toggleModal } open={ this.state.isOpen } url={ baseURL } />) : (<LoginForm onClick={ this.auth } />)}
+          {this.state.isLoggedIn ? (<Home logout={ this.logout } profile={ this.state.profile } status={ this.state.isLoggedIn } toggleModal={ this.toggleModal } open={ this.state.isOpen } url={ baseURL } leaders={ this.state.leaders } />) : (<LoginForm onClick={ this.auth } />)}
           <Footer />
       </div>
     )

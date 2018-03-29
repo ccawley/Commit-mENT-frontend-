@@ -23,6 +23,7 @@ class MessageBoard extends Component {
     this.getCommits()
   }
 
+    // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
   getCommits = () => {
     let query = `?limit=${this.state.limit}&offset=0`
     axios.get(`${this.props.url}commits${query}`)
@@ -69,9 +70,9 @@ class MessageBoard extends Component {
     return (
       <div className="ui container">
         {
-          this.state.cards.map((card) => {
+          this.state.cards.map((card, i) => {
             return <CommitCard
-              key={card.id}
+              key={i}
               id={card.id}
               name={card.full_name}
               message={card.message}
