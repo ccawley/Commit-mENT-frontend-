@@ -2,7 +2,9 @@ import React from 'react'
 import ReadMore from './ReadMore'
 import {Grid, Card, Image, Button} from 'semantic-ui-react'
 
-const CommitCard = ({id, name, message, date, avatar}) => {
+const CommitCard = ({id, name, message, date, avatar, voteOnCommit, likesCount}) => {
+// const CommitCard = ({id, name, message, date, avatar}) => {
+  console.log(id);
     return (
       <div className="ui card">
         <div className="content">
@@ -16,8 +18,10 @@ const CommitCard = ({id, name, message, date, avatar}) => {
       <div className="extra content">
         <div className="ui right labeled button" role="button" tabIndex="0">
           <button className="ui icon button" role="button">
-        <i aria-hidden="true" className="heart icon"></i>Like</button>
-          <a className="ui left pointing basic label">2,048</a>
+        {/* <i aria-hidden="true" className="heart icon"></i>Like</button> */}
+        <i aria-hidden="true" onClick={(e) => voteOnCommit(id, userid)} className="heart icon"></i>Like</button>
+          {/* <a className="ui left pointing basic label">2,048</a> */}
+          <a className="ui left pointing basic label">{likesCount(id)}</a>
         </div>
       </div>
       </div>

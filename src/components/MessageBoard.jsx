@@ -38,6 +38,19 @@ class MessageBoard extends Component {
     this.getCommits()
   }
 
+  voteOnCommit(id, userid) {
+    console.log('clicked like?')
+  }
+
+  likesCount(id) {
+    console.log('load votes plz')
+    axios.get(`${this.props.url}/likes/${id}`)
+      .then(result => {
+        return result.count
+      }
+      .catch(console.error)
+  }
+
   dateConversion = (dateStr) => {
     let date = new Date(dateStr)
     let toMilSec = date.valueOf()
