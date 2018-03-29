@@ -10,7 +10,7 @@ const CommitCard = ({id, name, message, date, avatar}) => {
         <div className="header">{name}</div>
         <div className="meta" >{date}</div>
         <div className="description">
-          {message}
+          “{message}„
         </div>
       </div>
       <div className="extra content">
