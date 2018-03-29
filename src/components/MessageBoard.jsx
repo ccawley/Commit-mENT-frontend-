@@ -31,7 +31,7 @@ class MessageBoard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui container">
         {
           this.state.cards.map((card) => {
             let date = new Date(card.created_on)
