@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
-
+    this.requestUserCommits()
   }
 
   // componentDidUpdate() {
