@@ -14,8 +14,8 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
         trigger={
 // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
           <span>
-            <Image avatar src={profile.avatar_image} /> {profile.full_name}
-            {/* <Image avatar src='http://via.placeholder.com/350x350' /> 'Al Gore' */}
+            {/* <Image avatar src={profile.avatar_image} /> {profile.full_name} */}
+            <Image avatar src='http://via.placeholder.com/350x350' /> 'Al Gore'
           </span>
         }
         options={options}
@@ -31,16 +31,16 @@ const DropDown = ({ logout, profile, status, onChange, open }) => {
                     circular
                     rounded
                     size='medium'
-                    src={profile.avatar_image}
-                    // src='http://via.placeholder.com/350x350'
+                    // src={profile.avatar_image}
+                    src='http://via.placeholder.com/350x350'
                   />
                 </Grid.Column>
 {/* CHANGE ME BACK PLZ THANKS!!!------------------------------------------ */}
                 <Grid.Column width={8}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>{profile.full_name}</Header>
-                  <div className="meta" >{profile.user_name}</div>
-                  {/* <Header as='h3' style={{ fontSize: '2em' }}>'Al Gore'</Header>
-                  <div className="meta" >'Al_Gore_04'</div> */}
+                  {/* <Header as='h3' style={{ fontSize: '2em' }}>{profile.full_name}</Header>
+                  <div className="meta" >{profile.user_name}</div> */}
+                  <Header as='h3' style={{ fontSize: '2em' }}>'Al Gore'</Header>
+                  <div className="meta" >'Al_Gore_04'</div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

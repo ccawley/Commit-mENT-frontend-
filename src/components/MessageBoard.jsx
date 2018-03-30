@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import CommitCard from './CommitCard'
 import axios from 'axios'
-import {Button} from 'semantic-ui-react'
+import {Button, Container, Grid} from 'semantic-ui-react'
 
 class MessageBoard extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ class MessageBoard extends Component {
     let query = `?limit=${this.state.limit}&offset=0`
     axios.get(`${this.props.url}commits${query}`)
       .then((response) => {
+        console.log(response);
         this.setState({ cards: response.data})
       })
       .catch(console.error)
@@ -68,21 +69,34 @@ class MessageBoard extends Component {
 
   render() {
     return (
-      <div className="ui container">
-        {
-          this.state.cards.map((card, i) => {
-            return <CommitCard
-              key={i}
-              id={card.id}
-              name={card.full_name}
-              message={card.message}
-              date={this.dateConversion(card.created_on)}
-              avatar={card.avatar_image}
-            />
-          })
-        }
-        <button className="ui mini basic button" role="button" onClick={this.loadMore}>Load more</button>
-      </div>
+        <Container>
+          <Grid>
+            <Grid.Row>
+              <Grid.Column>
+                <h1>Feed</h1>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <div className="ui container">
+                  {
+                    this.state.cards.map((card, i) => {
+                      return <CommitCard
+                        key={i}
+                        id={card.id}
+                        name={card.full_name}
+                        message={card.message}
+                        date={this.dateConversion(card.created_on)}
+                        avatar={card.avatar_image}
+                      />
+                    })
+                  }
+                  <button className="ui mini basic button" role="button" onClick={this.loadMore}>Load more</button>
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
     )
   }
 }
