@@ -24,9 +24,7 @@ class MessageBoard extends Component {
     this.getCommits()
   }
 
-    // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
   getCommits = () => {
-    console.log(this.props)
     let query = `?limit=${this.state.limit}&offset=0`
     axios.get(`${this.props.url}commits${query}`)
       .then((response) => {
@@ -46,9 +44,6 @@ class MessageBoard extends Component {
     let body = { commit_id: id, user_id: userid }
     axios.post(`${this.props.url}likes`, body)
       .then(result => {
-        console.log('casted vote')
-        // return this.likesCount(id)
-        console.log(result);
         let cardToUpdate = this.state.cards.find(card => {
           return card.id === id;
         })
@@ -61,15 +56,6 @@ class MessageBoard extends Component {
       })
       .catch(console.error)
   }
-
-  // likesCount = (id) => {
-  //   console.log('Im a URL!',this.props.url)
-  //   axios.get(`${this.props.url}likes/${id}`)
-  //     .then(result => {
-  //       return result.count
-  //     })
-  //     .catch(console.error)
-  // }
 
   dateConversion = (dateStr) => {
     let date = new Date(dateStr)
@@ -99,11 +85,9 @@ class MessageBoard extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="ui container">
-        {console.log(this.props, 'HEYYYYYYYYYYYYYY')}
         {
           this.state.cards.map((card, i) => {
             return <CommitCard
