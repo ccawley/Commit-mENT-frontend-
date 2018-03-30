@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import CommitCard from './CommitCard'
 import axios from 'axios'
-import {Button} from 'semantic-ui-react'
 
 class MessageBoard extends Component {
   constructor(props) {
@@ -22,6 +21,11 @@ class MessageBoard extends Component {
 
   componentDidMount() {
     this.getCommits()
+    window.addEventListener('scroll', this.trackScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.trackScroll)
   }
 
     // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
@@ -39,6 +43,7 @@ class MessageBoard extends Component {
     this.setState({limit: this.state.limit + 10})
     this.getCommits()
   }
+
 
   voteOnCommit = (e, id, userid) => {
     e.preventDefault()
@@ -61,15 +66,17 @@ class MessageBoard extends Component {
       })
       .catch(console.error)
   }
+  
+  trackScroll = () => {
+    let d = document.documentElement
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+    let scrollTrack = window.scrollY
 
-  // likesCount = (id) => {
-  //   console.log('Im a URL!',this.props.url)
-  //   axios.get(`${this.props.url}likes/${id}`)
-  //     .then(result => {
-  //       return result.count
-  //     })
-  //     .catch(console.error)
-  // }
+    if (scrollTrack === height) {
+      this.loadMore()
+    }
+  }
+
 
   dateConversion = (dateStr) => {
     let date = new Date(dateStr)
@@ -119,7 +126,6 @@ class MessageBoard extends Component {
             />
           })
         }
-        <button className="ui mini basic button" role="button" onClick={this.loadMore}>Load more</button>
       </div>
     )
   }
