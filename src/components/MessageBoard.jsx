@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import CommitCard from './CommitCard'
 import axios from 'axios'
-import {Button} from 'semantic-ui-react'
 
 class MessageBoard extends Component {
   constructor(props) {
