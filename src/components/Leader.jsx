@@ -4,7 +4,7 @@ import {Grid, Table, Header, Image, Container} from 'semantic-ui-react'
 const Leader = ({ leader }) => {
   console.log('dis!',leader);
   return (
-    <Table.Row positive>
+    <Table.Row>
       <Table.Cell>
         <Header as='h4' image>
           <Image avatar src={leader.avatar_image} rounded size='large'/>

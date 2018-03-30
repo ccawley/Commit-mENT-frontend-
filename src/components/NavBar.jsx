@@ -7,7 +7,7 @@ const NavBar = ({ logout, profile, status, onChange, open }) => {
 
   return (
    <div>
-     <Menu inverted>
+     <Menu fixed='top' inverted>
        <Container>
          <Menu.Item as='a' header>
            Commit-m
