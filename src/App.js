@@ -11,10 +11,10 @@ import './App.css'
 import axios from 'axios'
 
 //not deployed
-const baseURL = 'http://localhost:3000/'
+// const baseURL = 'http://localhost:3000/'
 
 //deployed
-// const baseURL = 'https://commit-m.herokuapp.com/'
+const baseURL = 'https://commit-m.herokuapp.com/'
 
 const dummyData = [
    {
@@ -72,8 +72,15 @@ const dummyData = [
 class App extends Component {
 
   // swap before pushing!
-  state = { isLoggedIn: true, isOpen: false, leaders: dummyData }
-  // state = { isLoggedIn: false, profile: null, isOpen: false }
+//   state = { isLoggedIn: true, isOpen: false, leaders: dummyData, profile: {
+//     "id": 1,
+//     "user_name": "ccawley",
+//     "full_name": "Curtis Cawley",
+//     "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//     "created_at": "2018-03-30T16:06:39.032Z",
+//     "updated_at": "2018-03-30T16:06:39.032Z"
+// } }
+  state = { isLoggedIn: false, profile: null, isOpen: false, leaders: null }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)

@@ -1,10 +1,7 @@
 import React, {Component} from 'react'
 import CommitCard from './CommitCard'
 import axios from 'axios'
-<<<<<<< HEAD
-import {Button, Container, Grid} from 'semantic-ui-react'
-=======
->>>>>>> upstream/master
+import {Container, Grid} from 'semantic-ui-react'
 
 class MessageBoard extends Component {
   constructor(props) {
@@ -19,6 +16,98 @@ class MessageBoard extends Component {
         avatar_image: null,
         likes: null
       }],
+//       cards: [
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2017-11-15T18:46:30Z",
+//         "message": "completed form",
+//         "id": 1,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2017-11-29T02:59:00Z",
+//         "message": "pretty good looking jsnode imitation site",
+//         "id": 2,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-01-13T04:19:54Z",
+//         "message": "built a server in under 10 mins",
+//         "id": 3,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-29T22:56:44Z",
+//         "message": "deleted some old/unused imported items",
+//         "id": 4,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-28T18:13:11Z",
+//         "message": "brace yourselves, we have a working commits route? yes we do #dablyfe",
+//         "id": 5,
+//         "likes": 2
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-28T16:44:08Z",
+//         "message": "Merge remote-tracking branch 'upstream/master'",
+//         "id": 6,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-28T16:43:51Z",
+//         "message": "made some minor changes",
+//         "id": 7,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-29T22:46:27Z",
+//         "message": "leaderboard component is working",
+//         "id": 8,
+//         "likes": 0
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-29T20:35:20Z",
+//         "message": "That right there boys and gals is a working leaderboard component",
+//         "id": 9,
+//         "likes": 2
+//     },
+//     {
+//         "full_name": "Curtis Cawley",
+//         "user_name": "ccawley",
+//         "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//         "created_on": "2018-03-29T17:07:00Z",
+//         "message": "minor change to footer, still not sticking to bottom",
+//         "id": 10,
+//         "likes": 0
+//     }
+// ],
       limit: 10
     }
   }
@@ -113,6 +202,8 @@ class MessageBoard extends Component {
 
 
   render() {
+    let copy = this.state.cards
+    copy.map(card => console.log(card))
     return (
         <Container>
           <Grid>

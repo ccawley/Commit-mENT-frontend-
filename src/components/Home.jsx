@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Container, Responsive, Grid } from 'semantic-ui-react'
+import { Image, Container, Responsive, Grid, Sidebar, Segment } from 'semantic-ui-react'
 import NavBar from './NavBar'
 import MessageBoard from './MessageBoard'
 import Leaderboard from './Leaderboard'
@@ -11,11 +11,13 @@ const Home = ({logout, profile, status, toggleModal, open, url, leaders}) => {
       <Responsive {...Responsive.onlyComputer}>
         <Grid stackable>
           <Grid.Row>
-            <Grid.Column id='leftHalfHome' width={10}>
+            <Grid.Column floated='left' id='leftHalfHome' width={10}>
               <Leaderboard leaders={ leaders } />
             </Grid.Column>
-            <Grid.Column id='rightHalfHome' width={6}>
-              <MessageBoard url={ url } profile={ profile } />
+            <Grid.Column floated='right' id='rightHalfHome' width={6}>
+              {/* <Sidebar.Pushable> */}
+                <MessageBoard url={ url } profile={ profile } />
+              {/* </Sidebar.Pushable> */}
             </Grid.Column>
           </Grid.Row>
         </Grid>
