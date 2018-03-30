@@ -10,7 +10,7 @@ const Home = ({logout, profile, status, toggleModal, open, url, leaders}) => {
       <NavBar logout={ logout } profile={ profile } status={ status } onChange={ toggleModal } open={ open } />
       <Leaderboard leaders={ leaders } />
       <div className="ui hidden divider"></div>
-      <MessageBoard url={ url } />
+      <MessageBoard url={ url } profile={ profile } />
       <div className="ui hidden divider"></div>
     </div>
   )

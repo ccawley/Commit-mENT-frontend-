@@ -13,7 +13,8 @@ class MessageBoard extends Component {
         user_name: null,
         created_on: null,
         message: null,
-        avatar_image: null
+        avatar_image: null,
+        likes: null
       }],
       limit: 10
     }
@@ -25,6 +26,7 @@ class MessageBoard extends Component {
 
     // CHANGE ME BACK PLZ THANKS!!!------------------------------------------
   getCommits = () => {
+    console.log(this.props)
     let query = `?limit=${this.state.limit}&offset=0`
     axios.get(`${this.props.url}commits${query}`)
       .then((response) => {
@@ -38,25 +40,36 @@ class MessageBoard extends Component {
     this.getCommits()
   }
 
-  voteOnCommit(id, userid) {
-    console.log('clicked like?')
+  voteOnCommit = (e, id, userid) => {
+    e.preventDefault()
+    console.log('clicked like?', id, userid)
     let body = { commit_id: id, user_id: userid }
-    axios.post(`${this.props.url}/likes`, body)
+    axios.post(`${this.props.url}likes`, body)
       .then(result => {
         console.log('casted vote')
-        return this.likesCount(id)
+        // return this.likesCount(id)
+        console.log(result);
+        let cardToUpdate = this.state.cards.find(card => {
+          return card.id === id;
+        })
+        let index = this.state.cards.indexOf(cardToUpdate);
+        let newCard = {...this.state.cards[index]};
+        newCard.likes = result.data[0].count;
+        let newCardsState = [...this.state.cards];
+        newCardsState[index] = newCard;
+        this.setState({cards: newCardsState })
       })
       .catch(console.error)
   }
 
-  likesCount(id) {
-    console.log('load votes plz')
-    axios.get(`${this.props.url}/likes/${id}`)
-      .then(result => {
-        return result.count
-      }
-      .catch(console.error)
-  }
+  // likesCount = (id) => {
+  //   console.log('Im a URL!',this.props.url)
+  //   axios.get(`${this.props.url}likes/${id}`)
+  //     .then(result => {
+  //       return result.count
+  //     })
+  //     .catch(console.error)
+  // }
 
   dateConversion = (dateStr) => {
     let date = new Date(dateStr)
@@ -86,9 +99,11 @@ class MessageBoard extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="ui container">
+        {console.log(this.props, 'HEYYYYYYYYYYYYYY')}
         {
           this.state.cards.map((card, i) => {
             return <CommitCard
@@ -98,6 +113,9 @@ class MessageBoard extends Component {
               message={card.message}
               date={this.dateConversion(card.created_on)}
               avatar={card.avatar_image}
+              userid={this.props.profile.id}
+              voteOnCommit={this.voteOnCommit}
+              likesCount={card.likes}
             />
           })
         }
