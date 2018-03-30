@@ -15,7 +15,7 @@ const Home = ({logout, profile, status, toggleModal, open, url, leaders}) => {
               <Leaderboard leaders={ leaders } />
             </Grid.Column>
             <Grid.Column id='rightHalfHome' width={6}>
-              <MessageBoard url={ url } />
+              <MessageBoard url={ url } profile={ profile } />
             </Grid.Column>
           </Grid.Row>
         </Grid>
