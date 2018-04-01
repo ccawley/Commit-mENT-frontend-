@@ -16,11 +16,71 @@ import axios from 'axios'
 //deployed
 const baseURL = 'https://commit-m.herokuapp.com/'
 
+const dummyData = [
+   {
+       "user_id": 1,
+       "message": "data returned from BFA now only consists of user specific commits.",
+       "createdAt": "2018-03-25T04:55:16Z",
+       "sha": "964e2b97c559186ab87c1e5226bb641d214f3a5d",
+       "user_name": "just-hey",
+       "full_name": "Justin",
+       "avatar_image": "https://avatars2.githubusercontent.com/u/20526266?v=4",
+       "count": 2
+   },
+   {
+       "user_id": 1,
+       "message": "first commit",
+       "createdAt": "2017-12-16T04:11:24Z",
+       "sha": "addac7be8cf89d60bec174f991b873985b6ad087",
+       "user_name": "just-hey",
+       "full_name": "Justin",
+       "avatar_image": "https://avatars2.githubusercontent.com/u/20526266?v=4",
+       "count": 2
+   },
+   {
+       "user_id": 1,
+       "message": "adding more logic/building functions",
+       "createdAt": "2017-10-30T04:06:27Z",
+       "sha": "5927ccd577313aeae147ccd716637fb1dc4aaa4d",
+       "user_name": "just-hey",
+       "full_name": "Justin",
+       "avatar_image": "https://avatars2.githubusercontent.com/u/20526266?v=4",
+       "count": 1
+   },
+   {
+       "user_id": 1,
+       "message": "works?",
+       "createdAt": "2018-03-27T20:52:18Z",
+       "sha": "e0fde5ddda84f6dcfd6bfd0c0bbccc21b5612d47",
+       "user_name": "just-hey",
+       "full_name": "Justin",
+       "avatar_image": "https://avatars2.githubusercontent.com/u/20526266?v=4",
+       "count": 1
+   },
+   {
+       "user_id": 1,
+       "message": "modal works as per boss man's request",
+       "createdAt": "2018-03-27T01:22:20Z",
+       "sha": "500d760cd0ac8c97c40b0c1e8c83a396590e9f40",
+       "user_name": "just-hey",
+       "full_name": "Justin",
+       "avatar_image": "https://avatars2.githubusercontent.com/u/20526266?v=4",
+       "count": 1
+   }
+]
+
 class App extends Component {
 
   // swap before pushing!
-  // state = { isLoggedIn: true, isOpen: false, leaders: dummyData }
-  state = { isLoggedIn: false, profile: null, isOpen: false }
+//   state = { isLoggedIn: true, isOpen: false, leaders: dummyData, profile: {
+//     "id": 1,
+//     "user_name": "ccawley",
+//     "full_name": "Curtis Cawley",
+//     "avatar_image": "https://avatars2.githubusercontent.com/u/25617861?v=4",
+//     "created_at": "2018-03-30T16:06:39.032Z",
+//     "updated_at": "2018-03-30T16:06:39.032Z"
+// } }
+  state = { isLoggedIn: false, profile: null, isOpen: false, leaders: null }
 
   componentDidMount() {
     if (window.location.search)  this.handleTokenExchange(window.location.search)
@@ -126,7 +186,6 @@ class App extends Component {
     if (this.state.isOpen) this.setState({ isOpen: false })
     else this.setState({ isOpen: true })
   }
-
 
   render() {
     return (
