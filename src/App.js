@@ -87,9 +87,6 @@ class App extends Component {
     this.requestUserCommits()
   }
 
-  // componentDidUpdate() {
-  // }
-
   handleTokenExchange = (tokenStr) => {
     // this.localStorage.setItem({ 'token': 'eef0cadcf685d2a6507a9c7cc46da26ac73a2ea2'})
     if (!tokenStr) return null
