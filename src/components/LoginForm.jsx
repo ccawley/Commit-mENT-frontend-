@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Button, Icon, Responsive } from 'semantic-ui-react'
+import InfoModal from './InfoModal'
 
 const LoginForm = ({ onClick }) => {
   return (
@@ -21,7 +22,13 @@ const LoginForm = ({ onClick }) => {
                   <Icon className='icon' name='star' size='large'/>
                   What's the most liked commit?
                 </h2>
+                <h2 id='info'>
+                  <InfoModal  />
+                </h2>
+
               </ul>
+
+
             </Grid.Column>
             <Grid.Column id='rightHalfSplash' width={8}>
               <ul>
@@ -55,6 +62,9 @@ const LoginForm = ({ onClick }) => {
                 <h3>
                   <Icon className='icon' name='star' size='large'/>
                   What's the most liked commit?
+                </h3>
+                <h3  id='info'>
+                  <InfoModal />
                 </h3>
               </ul>
             </Grid.Column>
@@ -102,6 +112,9 @@ const LoginForm = ({ onClick }) => {
                 <h4>
                   <Icon className='icon' name='star' size='large'/>
                   What's the most liked commit?
+                </h4>
+                <h4 id='info'>
+                  <InfoModal />
                 </h4>
               </ul>
             </Grid.Column>

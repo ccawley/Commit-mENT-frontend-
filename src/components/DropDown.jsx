@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Dropdown, Grid, Header, Image, Modal  } from 'semantic-ui-react'
 
 const DropDown = ({ logout, profile, status, onChange, open }) => {

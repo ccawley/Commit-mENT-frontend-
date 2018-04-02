@@ -123,7 +123,6 @@ class MessageBoard extends Component {
   }
 
   getCommits = () => {
-    console.log(this.props)
     let query = `?limit=${this.state.limit}&offset=0`
     axios.get(`${this.props.url}commits${query}`)
       .then((response) => {
@@ -139,16 +138,12 @@ class MessageBoard extends Component {
     // this.getCommits()
   }
 
-
   voteOnCommit = (e, id, userid) => {
     e.preventDefault()
     console.log('clicked like?', id, userid)
     let body = { commit_id: id, user_id: userid }
     axios.post(`${this.props.url}likes`, body)
       .then(result => {
-        console.log('casted vote')
-        // return this.likesCount(id)
-        console.log(result);
         let cardToUpdate = this.state.cards.find(card => {
           return card.id === id;
         })
@@ -166,12 +161,10 @@ class MessageBoard extends Component {
     let d = document.documentElement
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
     let scrollTrack = window.scrollY
-
     if (scrollTrack === height) {
       this.loadMore()
     }
   }
-
 
   dateConversion = (dateStr) => {
     let date = new Date(dateStr)
@@ -200,7 +193,6 @@ class MessageBoard extends Component {
       else return `${Math.floor(diff/oneYear)} years ago`
     }
   }
-
 
   render() {
     let copy = this.state.cards

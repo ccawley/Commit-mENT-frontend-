@@ -35,6 +35,12 @@
   font-size: 17px;
 }
 
+#info {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
 #rightHalfSplash {
   align-items: center;
   color: #FFAA66;

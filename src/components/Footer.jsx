@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Container, Menu, Responsive } from 'semantic-ui-react'
+import React from 'react'
+import { Responsive } from 'semantic-ui-react'
 
 const Footer = () => {
   return (
