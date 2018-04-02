@@ -90,6 +90,10 @@
   justify-content: center;
 }
 
+.leaderboard {
+  margin: 0 10px 0 20px;
+}
+
 .modal {
   width: 100px;
   height: 100px;
@@ -105,8 +109,4 @@
   -ms-transform:translateY(-50%);
   -o-transform:translateY(-50%);
   transform:translateY(-50%);
-}
-
-.footer {
-  border-top: solid black 1px;
 }

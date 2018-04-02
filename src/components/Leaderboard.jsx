@@ -11,7 +11,7 @@ const Leaderboard = ({ leaders }) => {
             <h1>Leaderboard</h1>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
+        <Grid.Row className='leaderboard'>
           <Grid.Column>
             <Table celled>
               <Table.Header>

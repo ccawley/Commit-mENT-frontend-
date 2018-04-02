@@ -15,9 +15,33 @@ const Home = ({logout, profile, status, toggleModal, open, url, leaders}) => {
               <Leaderboard leaders={ leaders } />
             </Grid.Column>
             <Grid.Column floated='right' id='rightHalfHome' width={6}>
-              {/* <Sidebar.Pushable> */}
-                <MessageBoard url={ url } profile={ profile } />
-              {/* </Sidebar.Pushable> */}
+              <MessageBoard url={ url } profile={ profile } />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Responsive>
+
+      <Responsive {...Responsive.onlyTablet}>
+        <Grid stackable>
+          <Grid.Row>
+            <Grid.Column floated='left' id='leftHalfHome' width={10}>
+              <Leaderboard leaders={ leaders } />
+            </Grid.Column>
+            <Grid.Column floated='right' id='rightHalfHome' width={6}>
+              <MessageBoard url={ url } profile={ profile } />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Responsive>
+
+      <Responsive {...Responsive.onlyMobile}>
+        <Grid stackable>
+          <Grid.Row>
+            <Grid.Column width={16}>
+              <Leaderboard leaders={ leaders } />
+            </Grid.Column>
+            <Grid.Column width={16}>
+              <MessageBoard url={ url } profile={ profile } />
             </Grid.Column>
           </Grid.Row>
         </Grid>
